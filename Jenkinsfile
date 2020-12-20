@@ -20,7 +20,7 @@ pipeline {
         stage("Deploy war to apache Tomcat") {
             steps {
                 sshagent(["${ssh_agent}"]) {
-                    sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@${tomcat_ip}:/opt/apache-tomcat-9.0.38/webapps"
+                    sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@${tomcat_ip}:${tomcat_path}"
     // some block
                 }
             }
